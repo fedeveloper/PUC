@@ -1,0 +1,8 @@
+{
+  "_note": "id_regione/id_provincia dai filtri di fitp.it: Piemonte=1, Torino=201. gender: M o F. doubles: false = solo singolari. age_category: NOR = categoria assoluta (esclude gli Under); null per tutti.",
+  "id_regione": 1,
+  "id_provincia": 201,
+  "gender": "M",
+  "doubles": false,
+  "age_category": "NOR"
+}

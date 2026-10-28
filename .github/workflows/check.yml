@@ -1,0 +1,36 @@
+name: Controlla tornei FITP
+
+on:
+  schedule:
+    # Orari in UTC: circa le 8 e le 19 in Italia.
+    - cron: "0 7 * * *"
+    - cron: "0 18 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write  # serve solo per salvare state.json
+
+concurrency:
+  group: fitp-alert
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cerca nuovi tornei e avvisa su Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 fitp_alert.py
+
+      - name: Salva i tornei già segnalati
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          git diff --cached --quiet || git commit -m "Aggiorna tornei segnalati"
+          git push
