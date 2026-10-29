@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Avvisa su Telegram dei nuovi tornei FITP con iscrizioni aperte.
+"""Avvisa su Telegram dei nuovi tornei FITP e TPRA con iscrizioni aperte.
 
-Interroga le stesse API usate da https://www.fitp.it/Tornei/Ricerca-tornei,
-filtra i tabelloni che corrispondono alla configurazione (provincia, sesso,
-singolare/doppio) con scadenza iscrizioni futura, e invia un messaggio
-Telegram per ogni tabellone mai segnalato prima. Solo libreria standard.
+Interroga le stesse API usate da https://www.fitp.it/Tornei/Ricerca-tornei
+e da https://tpra.fitp.it, filtra i tornei che corrispondono alla
+configurazione (provincia, sesso, singolare/doppio, livello TPRA) con
+scadenza iscrizioni futura, e invia un messaggio Telegram per ogni torneo
+mai segnalato prima. Solo libreria standard.
 """
 
 import argparse
@@ -25,6 +26,15 @@ TENNIS = 4332
 PAGE_SIZE = 25
 ROME_TZ = ZoneInfo("Europe/Rome")
 USER_AGENT = "fitp-alert/1.0 (avvisi personali tornei)"
+
+TPRA_API = "https://tpra-prod-frontend-function.azurewebsites.net/api"
+TPRA_LIST_URL = TPRA_API + "/v1/tornei/tornei/list"
+TPRA_DETAIL_URL = TPRA_API + "/v1/tornei/dettaglio/view"
+TPRA_PAGE_URL = "https://tpra.fitp.it/tornei/dettaglio-torneo/"
+TPRA_TENNIS = 1  # id_settore
+# id_tipologia TPRA per (sesso, doppio)
+TPRA_TIPOLOGIE = {("M", False): 1, ("F", False): 2, ("M", True): 3, ("F", True): 4}
+TPRA_PAGE_SIZE = 50
 
 
 def post_json(url, payload, retries=3):
@@ -90,6 +100,89 @@ def matching_tournaments(detail, cfg, now):
         if not end or parse_utc(end) <= now:
             continue
         yield t
+
+
+def list_tpra(cfg, today):
+    """Tornei TPRA della zona che iniziano da oggi in poi."""
+    tpra = cfg.get("tpra") or {}
+    tornei, skip = [], 0
+    while True:
+        payload = {
+            "id_settore": TPRA_TENNIS,
+            "data_inizio": today.isoformat() + "T00:00:00.000Z", "data_fine": "",
+            "id_regione": cfg["id_regione"], "id_provincia": cfg["id_provincia"],
+            "id_societa": None,
+            "id_tipologia": TPRA_TIPOLOGIE[(cfg["gender"], cfg["doubles"])],
+            "id_settore_gruppo": tpra.get("id_settore_gruppo"),
+            "id_power_range": tpra.get("id_power_range"),
+            "id_circuito": None,
+            "rowstoskip": skip, "fetchrows": TPRA_PAGE_SIZE,
+            "senza_assegnazione_punti": False,
+        }
+        data = post_json(TPRA_LIST_URL, payload)
+        if not data or not data.get("results"):
+            break
+        tornei += data["results"]
+        skip += TPRA_PAGE_SIZE
+        if skip >= (data.get("record") or 0):
+            break
+    return tornei
+
+
+def tpra_has_room(t):
+    """Iscrizioni aperte secondo la lista e posti ancora liberi."""
+    if not t.get("can_subscribe"):
+        return False
+    try:
+        return int(t["nr_iscrizioni"]) < int(t["iscrizioni_massimale"])
+    except (KeyError, TypeError, ValueError):
+        return True  # massimale non indicato
+
+
+def parse_tpra_date(value):
+    """'30/10/26 18:00' (ora italiana) -> datetime UTC."""
+    local = dt.datetime.strptime(value, "%d/%m/%y %H:%M").replace(tzinfo=ROME_TZ)
+    return local.astimezone(dt.timezone.utc)
+
+
+def format_tpra_message(t, detail, deadline):
+    lines = [
+        f"🎾 <b>TPRA – {esc(t['nome_torneo']).strip()}</b>",
+        f"{esc(t.get('tipologia', ''))} · {esc(t.get('power_percentuale', ''))}"
+        f" · {esc(t.get('nome_circuito', ''))}",
+        f"📍 {esc(t.get('societa', ''))} – {esc(detail.get('comune_e_provincia', ''))}",
+        f"📅 {esc(detail.get('data_torneo') or t['data_inizio'])}",
+        f"⏰ Iscrizioni entro {deadline.astimezone(ROME_TZ):%d/%m/%Y %H:%M}",
+        f"👥 Iscritti {t.get('nr_iscrizioni')}/{t.get('iscrizioni_massimale')}",
+    ]
+    if detail.get("superficie_primaria"):
+        lines.append(f"🏟 {esc(detail['superficie_primaria'])}")
+    if detail.get("quota_iscrizione_singolo"):
+        lines.append(f"💶 {esc(detail['quota_iscrizione_singolo'])}")
+    lines.append(f'<a href="{TPRA_PAGE_URL}{t["id_torneo"]}">Apri su tpra.fitp.it</a>')
+    return "\n".join(lines)
+
+
+def new_tpra_blocks(cfg, today, now, seen):
+    tornei = list_tpra(cfg, today)
+    print(f"Tornei TPRA in zona da {today:%d/%m/%Y}: {len(tornei)}")
+    blocks = []
+    for t in tornei:
+        key = f"tpra-{t['id_torneo']}"
+        if key in seen or not tpra_has_room(t):
+            continue
+        data = post_json(TPRA_DETAIL_URL, {"id": t["id_torneo"]})
+        time.sleep(0.5)
+        detail = ((data or {}).get("results") or [None])[0]
+        if not detail or not detail.get("data_termine_iscrizioni"):
+            continue
+        deadline = parse_tpra_date(detail["data_termine_iscrizioni"])
+        if deadline <= now:
+            continue
+        blocks.append(format_tpra_message(t, detail, deadline))
+        seen[key] = {"nome": t["nome_torneo"].strip(), "competizione": "TPRA",
+                     "scadenza": deadline.strftime("%Y-%m-%dT%H:%M:%SZ")}
+    return blocks
 
 
 def format_message(comp, detail, t):
@@ -186,6 +279,8 @@ def main():
             seen[key] = {"nome": t.get("TournamentDescription"),
                          "competizione": comp["guid"],
                          "scadenza": t["DateEndSubscription"]}
+    if (cfg.get("tpra") or {}).get("enabled", True):
+        blocks += new_tpra_blocks(cfg, today, now, seen)
 
     # Dimentica i tornei la cui scadenza è passata da più di 60 giorni.
     cutoff = now - dt.timedelta(days=60)
