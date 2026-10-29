@@ -1,4 +1,4 @@
-name: Controlla tornei FITP
+name: Controlla tornei FITP e TPRA
 
 on:
   schedule:
