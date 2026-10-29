@@ -119,6 +119,71 @@
    "competizione": "BE39F5E2-E55D-4F12-8101-FBCD3B66590D",
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-12-08T12:00:00Z"
+  },
+  "tpra-221368": {
+   "competizione": "TPRA",
+   "nome": "BERCY EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-10-30T17:00:00Z"
+  },
+  "tpra-222055": {
+   "competizione": "TPRA",
+   "nome": "BERCY ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-05T17:00:00Z"
+  },
+  "tpra-222056": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 LIMIT 60 SINGOLARE MASCHILE",
+   "scadenza": "2026-11-12T17:00:00Z"
+  },
+  "tpra-222057": {
+   "competizione": "TPRA",
+   "nome": "TORINO ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-19T17:00:00Z"
+  },
+  "tpra-222058": {
+   "competizione": "TPRA",
+   "nome": "TORINO LIMIT 40 SINGOLARE MASCHILE",
+   "scadenza": "2026-11-26T17:00:00Z"
+  },
+  "tpra-222059": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-06T17:00:00Z"
+  },
+  "tpra-222060": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-20T17:00:00Z"
+  },
+  "tpra-222061": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-13T17:00:00Z"
+  },
+  "tpra-222067": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-27T17:00:00Z"
+  },
+  "tpra-222336": {
+   "competizione": "TPRA",
+   "nome": "TORINO EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-27T17:00:00Z"
+  },
+  "tpra-222340": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-13T17:00:00Z"
+  },
+  "tpra-222431": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-13T17:00:00Z"
+  },
+  "tpra-222432": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-27T17:00:00Z"
   }
  }
 }
