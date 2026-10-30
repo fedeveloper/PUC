@@ -163,6 +163,31 @@ def format_tpra_message(t, detail, deadline):
     return "\n".join(lines)
 
 
+def enabled(cfg, source):
+    """Ricerca attiva salvo `"enabled": false` nella sezione della fonte."""
+    return (cfg.get(source) or {}).get("enabled", True)
+
+
+def new_fitp_blocks(cfg, today, now, seen):
+    competitions = list_competitions(cfg, today)
+    print(f"Competizioni FITP in zona da {today:%d/%m/%Y}: {len(competitions)}")
+    blocks = []
+    for comp in competitions:
+        detail = post_json(DETAIL_URL, {"competitionUid": comp["guid"]})
+        time.sleep(0.5)  # gentile con il server
+        if not detail:
+            continue
+        for t in matching_tournaments(detail, cfg, now):
+            key = str(t.get("TournamentUid") or t.get("TournamentId"))
+            if key in seen:
+                continue
+            blocks.append(format_message(comp, detail, t))
+            seen[key] = {"nome": t.get("TournamentDescription"),
+                         "competizione": comp["guid"],
+                         "scadenza": t["DateEndSubscription"]}
+    return blocks
+
+
 def new_tpra_blocks(cfg, today, now, seen):
     tornei = list_tpra(cfg, today)
     print(f"Tornei TPRA in zona da {today:%d/%m/%Y}: {len(tornei)}")
@@ -262,24 +287,12 @@ def main():
 
     now = dt.datetime.now(dt.timezone.utc)
     today = now.astimezone(ROME_TZ).date()
-    competitions = list_competitions(cfg, today)
-    print(f"Competizioni FITP in zona da {today:%d/%m/%Y}: {len(competitions)}")
-
+    if not (enabled(cfg, "fitp") or enabled(cfg, "tpra")):
+        print("Ricerche FITP e TPRA entrambe disattivate in config.json: nulla da fare.")
     blocks = []
-    for comp in competitions:
-        detail = post_json(DETAIL_URL, {"competitionUid": comp["guid"]})
-        time.sleep(0.5)  # gentile con il server
-        if not detail:
-            continue
-        for t in matching_tournaments(detail, cfg, now):
-            key = str(t.get("TournamentUid") or t.get("TournamentId"))
-            if key in seen:
-                continue
-            blocks.append(format_message(comp, detail, t))
-            seen[key] = {"nome": t.get("TournamentDescription"),
-                         "competizione": comp["guid"],
-                         "scadenza": t["DateEndSubscription"]}
-    if (cfg.get("tpra") or {}).get("enabled", True):
+    if enabled(cfg, "fitp"):
+        blocks += new_fitp_blocks(cfg, today, now, seen)
+    if enabled(cfg, "tpra"):
         blocks += new_tpra_blocks(cfg, today, now, seen)
 
     # Dimentica i tornei la cui scadenza è passata da più di 60 giorni.

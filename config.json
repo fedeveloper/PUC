@@ -1,10 +1,13 @@
 {
-  "_note": "id_regione/id_provincia dai filtri di fitp.it: Piemonte=1, Torino=201. gender: M o F. doubles: false = solo singolari. age_category: NOR = categoria assoluta (esclude gli Under); null per tutti. tpra.id_settore_gruppo: livello TPRA (9 Entry Level, 10 Expert Level, 11 Power personalizzati), null per tutti. tpra.id_power_range: fascia power (1 Limit 30, 2 Limit 35, 3 Limit 40, 4 Limit 45, 5 Limit 50, 6 Limit 55, 7 Limit 60, 8 Limit 65, 9 Limit 70, 10 Open), null per tutte.",
+  "_note": "id_regione/id_provincia dai filtri di fitp.it: Piemonte=1, Torino=201. gender: M o F. doubles: false = solo singolari. age_category: NOR = categoria assoluta (esclude gli Under); null per tutti. fitp.enabled / tpra.enabled: false per disattivare quella ricerca. tpra.id_settore_gruppo: livello TPRA (9 Entry Level, 10 Expert Level, 11 Power personalizzati), null per tutti. tpra.id_power_range: fascia power (1 Limit 30, 2 Limit 35, 3 Limit 40, 4 Limit 45, 5 Limit 50, 6 Limit 55, 7 Limit 60, 8 Limit 65, 9 Limit 70, 10 Open), null per tutte.",
   "id_regione": 1,
   "id_provincia": 201,
   "gender": "M",
   "doubles": false,
   "age_category": "NOR",
+  "fitp": {
+    "enabled": true
+  },
   "tpra": {
     "enabled": true,
     "id_settore_gruppo": null,

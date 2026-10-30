@@ -5,6 +5,9 @@ e i tornei TPRA su [tpra.fitp.it](https://tpra.fitp.it) nella zona configurata e
 
 ## Come funziona
 
+Le due ricerche (FITP e TPRA) sono indipendenti: puoi tenerle attive entrambe o solo una
+(vedi `fitp.enabled` e `tpra.enabled` sotto).
+
 1. Chiede all'API usata dal sito tutte le competizioni FITP della provincia che iniziano da oggi in poi.
 2. Per ognuna legge il dettaglio e tiene i tabelloni che corrispondono ai filtri di `config.json`
    (sesso, singolare/doppio, categoria d'età) con la scadenza delle iscrizioni non ancora passata.
@@ -23,7 +26,8 @@ e i tornei TPRA su [tpra.fitp.it](https://tpra.fitp.it) nella zona configurata e
 | `gender` | `M` o `F` |
 | `doubles` | `false` solo singolari, `true` solo doppi |
 | `age_category` | `NOR` = categoria assoluta (esclude i tornei Under); `null` per tutti (solo FITP) |
-| `tpra.enabled` | `false` per non cercare i tornei TPRA |
+| `fitp.enabled` | `false` per non cercare i tornei FITP (se manca vale `true`) |
+| `tpra.enabled` | `false` per non cercare i tornei TPRA (se manca vale `true`) |
 | `tpra.id_settore_gruppo` | livello TPRA: 9 Entry Level, 10 Expert Level, 11 Power personalizzati; `null` per tutti |
 | `tpra.id_power_range` | fascia power: 1 Limit 30, 2 Limit 35, 3 Limit 40, 4 Limit 45, 5 Limit 50, 6 Limit 55, 7 Limit 60, 8 Limit 65, 9 Limit 70, 10 Open; `null` per tutte |
 
