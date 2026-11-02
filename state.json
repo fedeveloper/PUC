@@ -1,5 +1,10 @@
 {
  "seen": {
+  "04DF4778-E588-448E-9D92-036268C55CC9": {
+   "competizione": "794301DD-FE7B-4CC6-993A-73B26A4F46BF",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-04T12:00:00Z"
+  },
   "0531DBBB-105E-4ED8-B935-8CB2C5ADED9F": {
    "competizione": "EEC535A4-C69E-4272-94B5-82F7D336CDD7",
    "nome": "Singolare Maschile Open LIM. 4.6 - 4.1",
@@ -70,6 +75,11 @@
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-11-12T12:00:00Z"
   },
+  "83DC9F3F-EBA0-4083-92CA-B5C62A6E3A98": {
+   "competizione": "FF17E2EB-769C-42A1-AD89-0194BC066684",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-11-28T12:00:00Z"
+  },
   "90B64E1C-2842-4ACA-B34B-E2347527ADCC": {
    "competizione": "3826046F-CC51-43F0-9E46-F9299AC0D19D",
    "nome": "Singolare Maschile Open",
@@ -119,6 +129,11 @@
    "competizione": "BE39F5E2-E55D-4F12-8101-FBCD3B66590D",
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-12-08T12:00:00Z"
+  },
+  "E6D2D91A-F5C2-4D93-B03B-1B3C23FF3108": {
+   "competizione": "F3696D93-8845-4BE6-9BCF-8697B064990B",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-11T12:00:00Z"
   },
   "tpra-221368": {
    "competizione": "TPRA",
@@ -184,6 +199,21 @@
    "competizione": "TPRA",
    "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
    "scadenza": "2026-11-27T17:00:00Z"
+  },
+  "tpra-222645": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-05T17:00:00Z"
+  },
+  "tpra-222646": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-12T17:00:00Z"
+  },
+  "tpra-222745": {
+   "competizione": "TPRA",
+   "nome": "TORINO EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-20T17:00:00Z"
   }
  }
 }
