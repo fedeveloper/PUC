@@ -10,6 +10,11 @@
    "nome": "Singolare Maschile Open LIM. 4.6 - 4.1",
    "scadenza": "2026-10-29T12:00:00Z"
   },
+  "110F1B80-44CA-438C-92F5-CC5B1AAE5884": {
+   "competizione": "DD3463EB-FC06-4E46-A9E4-E335B815537C",
+   "nome": "Singolare Maschile Open LIM. 4.3 - 4.1",
+   "scadenza": "2026-12-03T12:00:00Z"
+  },
   "1685D537-0EAF-482E-975E-EB598F1EACEB": {
    "competizione": "C2FD92F8-1B4B-48BE-83EB-4C4C3F71FF1F",
    "nome": "Singolare Maschile Open LIM. 3.5 - 3.1",
@@ -95,6 +100,11 @@
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-11-05T12:00:00Z"
   },
+  "A6E5025C-EA9F-433F-9A5B-596565854538": {
+   "competizione": "36E1D5BF-9861-4C50-ACC5-7F1621B2D7B3",
+   "nome": "Singolare Maschile Open LIM. 4.5 - 4.2",
+   "scadenza": "2026-12-05T12:00:00Z"
+  },
   "A7679EFD-051E-43A9-8700-2855F603ABEC": {
    "competizione": "68CE70B6-0ECD-4E82-967F-E35BD087262A",
    "nome": "Singolare Maschile Open LIM. 4.4 - 4.1",
@@ -144,6 +154,11 @@
    "competizione": "F3696D93-8845-4BE6-9BCF-8697B064990B",
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-12-11T12:00:00Z"
+  },
+  "EFBCF9C5-8470-4BDA-B2E8-A2F7E20B1820": {
+   "competizione": "26BCC13E-66A9-4FBA-A7B4-73F8AA5C2AA0",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-11-26T12:00:00Z"
   },
   "tpra-221368": {
    "competizione": "TPRA",
