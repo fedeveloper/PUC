@@ -264,6 +264,16 @@
    "competizione": "TPRA",
    "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
    "scadenza": "2026-12-04T17:00:00Z"
+  },
+  "tpra-223796": {
+   "competizione": "TPRA",
+   "nome": "TORNEO DIAMANTE PREQUALI IBI27 SOCIALE LIMIT 60 SINGOLARE MASCHILE",
+   "scadenza": "2026-11-11T17:00:00Z"
+  },
+  "tpra-223798": {
+   "competizione": "TPRA",
+   "nome": "TORNEO ARGENTO PREQUALI IBI27 SOCIALE LIMIT 35 SINGOLARE MASCHILE",
+   "scadenza": "2026-11-14T17:00:00Z"
   }
  }
 }
