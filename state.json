@@ -75,6 +75,11 @@
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-10-29T12:00:00Z"
   },
+  "734C5508-B047-4FE2-9AF3-0DB0C0B6ED9B": {
+   "competizione": "36BD29C0-2CCD-4EBB-8D6F-EF0ADD946BAD",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-05T12:00:00Z"
+  },
   "78837B53-C391-46AF-8EF5-05527CF244F4": {
    "competizione": "D6ACBAAF-DC97-43CB-B970-BBA7B4393DA6",
    "nome": "Singolare Maschile Open",
@@ -279,6 +284,11 @@
    "competizione": "TPRA",
    "nome": "TURIMBLEDON SOCIAL 2026 PREQUALI IBI27 SOCIALE EXPERT LEVEL SINGOLARE MASCHILE",
    "scadenza": "2026-11-19T17:00:00Z"
+  },
+  "tpra-224077": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 EXPERT LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-13T17:00:00Z"
   }
  }
 }
