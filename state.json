@@ -294,6 +294,41 @@
    "competizione": "TPRA",
    "nome": "PREQUALI IBI27 EXPERT LEVEL SINGOLARE MASCHILE",
    "scadenza": "2026-11-13T17:00:00Z"
+  },
+  "tpra-224353": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-11-19T17:00:00Z"
+  },
+  "tpra-224394": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-12-03T17:00:00Z"
+  },
+  "tpra-224395": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 LIMIT 35 SINGOLARE MASCHILE",
+   "scadenza": "2026-12-10T17:00:00Z"
+  },
+  "tpra-224396": {
+   "competizione": "TPRA",
+   "nome": "XMAS EVENT ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-12-17T17:00:00Z"
+  },
+  "tpra-224397": {
+   "competizione": "TPRA",
+   "nome": "TORNEO \" SMALTIAMO IL PANETTONE \" XMAS EVENT LIMIT 70 SINGOLARE MASCHILE",
+   "scadenza": "2026-12-24T17:00:00Z"
+  },
+  "tpra-224398": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-12-11T17:00:00Z"
+  },
+  "tpra-224400": {
+   "competizione": "TPRA",
+   "nome": "PREQUALI IBI27 ENTRY LEVEL SINGOLARE MASCHILE",
+   "scadenza": "2026-12-25T17:00:00Z"
   }
  }
 }
