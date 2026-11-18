@@ -25,6 +25,11 @@
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-11-05T12:00:00Z"
   },
+  "32A4BA23-A53B-4B8B-B42A-F2569BEEF91A": {
+   "competizione": "1FE72E71-E039-45B6-B652-0576EFCBA84E",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-03T12:00:00Z"
+  },
   "3CEC6593-02C4-4A46-BF68-1805A0C0A42F": {
    "competizione": "CFB142A9-73F2-43AD-9431-61194B7D67C5",
    "nome": "Singolare Maschile Open",
@@ -60,6 +65,16 @@
    "nome": "Singolare Maschile Open LIM. 4.6 - 4.1",
    "scadenza": "2026-11-21T12:00:00Z"
   },
+  "62D9742C-B56F-4DAE-9E2B-9C1559CB240B": {
+   "competizione": "85F6B1B8-1C20-40A7-A914-9628379A33E8",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-03T12:00:00Z"
+  },
+  "63B20767-AD00-4939-A509-953211797008": {
+   "competizione": "85F6B1B8-1C20-40A7-A914-9628379A33E8",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-03T12:00:00Z"
+  },
   "67E68D17-CC02-481C-B858-675E39D13ACE": {
    "competizione": "725B0670-DBA4-482D-B321-5E491CA4A0D0",
    "nome": "Singolare Maschile Open",
@@ -69,6 +84,11 @@
    "competizione": "5AA8B9CF-76D7-4427-A7D3-2C6936AD4999",
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-10-29T12:00:00Z"
+  },
+  "70BAA038-E0CD-4F70-8447-ECD6F0DF0390": {
+   "competizione": "85F6B1B8-1C20-40A7-A914-9628379A33E8",
+   "nome": "Singolare Maschile Open SOLO NC",
+   "scadenza": "2026-12-03T12:00:00Z"
   },
   "726E8036-FD36-475E-8A8E-0119B991A174": {
    "competizione": "E2E0F776-EE3C-42E0-8255-9A0B0F92794A",
@@ -130,6 +150,11 @@
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-11-24T12:00:00Z"
   },
+  "B7F3EDD3-996B-43AB-AAD7-1260FBD401FF": {
+   "competizione": "9411FD47-5197-4195-9397-A835DB3F46E2",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-03T12:00:00Z"
+  },
   "C18626AC-6F46-4504-89C4-09F13D65D6A4": {
    "competizione": "2CBE91FA-2CE4-4826-8C3E-3B8B9B2B86F1",
    "nome": "Singolare Maschile Open",
@@ -154,6 +179,11 @@
    "competizione": "9D6346A1-1F94-4AF6-A64D-3EFD93F542EA",
    "nome": "Singolare Maschile Open",
    "scadenza": "2026-11-26T12:00:00Z"
+  },
+  "D7224670-DE92-420E-96C6-683C31325FA6": {
+   "competizione": "D508C870-01FC-4BD3-B045-ADE7C62532F4",
+   "nome": "Singolare Maschile Open",
+   "scadenza": "2026-12-03T12:00:00Z"
   },
   "E3EE906B-FD14-4E94-B57D-5E9F8F0D80F1": {
    "competizione": "0FA47165-1AD7-47EA-901B-D8D366FBCD41",
